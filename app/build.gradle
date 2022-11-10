@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    apply plugin: 'realm-android'
 }
 
 android {
@@ -30,14 +29,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildscript {
-        repositories {
-            jcenter()
-        }
-        dependencies {
-            classpath "io.realm:realm-gradle-plugin:1.2.0"
-        }
-    }
+
 }
 
 dependencies {

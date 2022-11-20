@@ -2,6 +2,7 @@ package com.example.realm
 
 import io.realm.kotlin.Realm
 import io.realm.kotlin.RealmConfiguration
+import io.realm.kotlin.ext.query
 import io.realm.kotlin.query.RealmResults
 import io.realm.kotlin.types.RealmObject
 import io.realm.kotlin.types.annotations.PrimaryKey
@@ -48,5 +49,12 @@ object Database{
     fun query(){
         //All Person
         val all: RealmResults<Person> = realm.query<Person>().find()
+
+        //Person named 'Carlo'
+        val first : Person? = realm.query<Person>("name = $0","Carlo").first().find()
+    }
+    suspend fun queryAsync(){
+        //Per having a dog aged more then 7 whit a name starting with "Fi"
+        realm.query<Person>("dog.age")
     }
 }
